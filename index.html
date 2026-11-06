@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Porni Group // Apex Generative AI Creative Studio</title>
+    <meta name="description" content="The Porni Group engineers boundary-pushing synthetic cinema, neural couture stills, generative audio, and autonomous digital personas." />
+    <meta name="theme-color" content="#08080A" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- Site Header & Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#" class="brand-logo" aria-label="The Porni Group Home">
+          <div class="brand-icon"></div>
+          <span class="brand-name">THE PORNI <span>GROUP</span></span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="#showcase" class="nav-link">Showcase</a></li>
+            <li><a href="#mediums" class="nav-link">Mediums</a></li>
+            <li><a href="#pipeline" class="nav-link">Pipeline</a></li>
+            <li><a href="#manifesto" class="nav-link">Manifesto</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="system-pill mono">
+            <span class="pulse-indicator"></span>
+            <span>● LIVE SYSTEMS // GENERATIVE STUDIO 2026</span>
+          </div>
+
+          <!-- Ambient Audio Synthesizer Toggle -->
+          <button id="ambientAudioToggle" class="audio-toggle-btn mono" aria-label="Toggle Neural Audio Synthesizer">
+            <div class="audio-bars">
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+              <span class="audio-bar"></span>
+            </div>
+            <span id="ambientAudioLabel">SYNTH AUDIO: OFF</span>
+          </button>
+
+          <!-- Mobile Nav Toggle -->
+          <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-drawer">
+        <a href="#showcase" class="nav-link">Showcase</a>
+        <a href="#mediums" class="nav-link">Mediums</a>
+        <a href="#pipeline" class="nav-link">Pipeline</a>
+        <a href="#manifesto" class="nav-link">Manifesto</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section with Dynamic Interactive Canvas -->
+      <section class="hero-section" id="hero">
+        <canvas id="neuralCanvas"></canvas>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-meta-badge mono">
+              <span>● APEX MULTI-MODAL SYNTHESIS ENGINE</span>
+            </div>
+            <h1 class="hero-title">
+              Redefining <span class="gradient-text">Synthetic Realities</span> with Pure AI Generation.
+            </h1>
+            <p class="hero-description">
+              The Porni Group is an elite collective synthesizing cinematic video, haute-couture neural stills, acoustic architectures, and sovereign virtual personas for boundary-pushing brands and visionary directors.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#showcase" class="btn btn-primary">
+                <span>Explore Archive</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+              <a href="#commission" class="btn btn-secondary">
+                <span>Commission Project</span>
+              </a>
+            </div>
+
+            <!-- Telemetry HUD Counters -->
+            <div class="hero-telemetry-hud mono">
+              <div class="telemetry-card">
+                <div class="telemetry-label">Latent Dimension</div>
+                <div class="telemetry-val glow-text-cyan" data-counter="4096" data-suffix="-D">0-D</div>
+              </div>
+              <div class="telemetry-card">
+                <div class="telemetry-label">Compute Dispatched</div>
+                <div class="telemetry-val glow-text-magenta" data-counter="4.82" data-decimals="2" data-suffix=" PF">0 PF</div>
+              </div>
+              <div class="telemetry-card">
+                <div class="telemetry-label">Neural Fidelity</div>
+                <div class="telemetry-val glow-text-lime" data-counter="99.82" data-decimals="2" data-suffix="%">0%</div>
+              </div>
+              <div class="telemetry-card">
+                <div class="telemetry-label">Provenance Audit</div>
+                <div class="telemetry-val" style="color: #00F0FF;">C2PA VALID</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Infinite Marquee Ticker (Tech Stack & Models) -->
+      <section class="marquee-container" aria-label="Generative Architecture Stack">
+        <div class="marquee-track">
+          <div class="marquee-item"><span class="marquee-dot"></span> FLUX.1 [DEV / SCHNELL]</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> RUNWAY GEN-3 ALPHA</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> KLING 1.5 PRO DIFFUSION</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> STABLE DIFFUSION 3.5 LARGE</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> MIDJOURNEY V6.1</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> ELEVENLABS V3 NEURAL</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> UDIO 1.5 ACOUSTICS</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> LIVEPORTRAIT NEURAL RIG</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> COMFYUI MULTI-NODE CLUSTER</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> NVIDIA TENSORRT ENGINES</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> C2PA CRYPTOGRAPHIC PROVENANCE</div>
+          <!-- Duplicate for seamless infinite loop -->
+          <div class="marquee-item"><span class="marquee-dot"></span> FLUX.1 [DEV / SCHNELL]</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> RUNWAY GEN-3 ALPHA</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> KLING 1.5 PRO DIFFUSION</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> STABLE DIFFUSION 3.5 LARGE</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> MIDJOURNEY V6.1</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> ELEVENLABS V3 NEURAL</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> UDIO 1.5 ACOUSTICS</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> LIVEPORTRAIT NEURAL RIG</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> COMFYUI MULTI-NODE CLUSTER</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> NVIDIA TENSORRT ENGINES</div>
+          <div class="marquee-item"><span class="marquee-dot"></span> C2PA CRYPTOGRAPHIC PROVENANCE</div>
+        </div>
+      </section>
+
+      <!-- Media Showcase & Interactive Gallery -->
+      <section class="section-padding" id="showcase">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag mono">PORTFOLIO ARCHIVE // 2026 REEL</div>
+            <h2 class="section-title">Synthesized Media Catalog</h2>
+            <p class="section-desc">
+              Every piece engineered through custom latent checkpoints, multi-pass diffusion, and cryptographically stamped with verifiable provenance metadata.
+            </p>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="filter-bar" role="tablist">
+            <button class="filter-tab active" data-filter="all">All Media [07]</button>
+            <button class="filter-tab" data-filter="stills">Neural Stills (Photoreal & 3D)</button>
+            <button class="filter-tab" data-filter="cinema">Synthetic Cinema (AI Video)</button>
+            <button class="filter-tab" data-filter="acoustic">Acoustic & Voice Synthesis</button>
+            <button class="filter-tab" data-filter="personas">Virtual Personas & Agents</button>
+          </div>
+
+          <!-- Dynamic Grid Container -->
+          <div class="showcase-grid" id="showcaseGrid">
+            <!-- Rendered dynamically by main.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Capabilities & Services Grid -->
+      <section class="section-padding" id="mediums" style="background-color: var(--bg-surface-1); position: relative;">
+        <span id="capabilities" style="position: absolute; top: -80px;"></span>
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag mono">CORE DISCIPLINES</div>
+            <h2 class="section-title">Generative Capabilities</h2>
+            <p class="section-desc">
+              End-to-end synthetic production pipelines from bespoke model fine-tuning to broadcast-grade master deliveries.
+            </p>
+          </div>
+
+          <div class="capabilities-grid">
+            <article class="capability-card">
+              <div class="capability-num">01 // PRODUCTION</div>
+              <h3 class="capability-title">Synthetic Cinema & Commercials</h3>
+              <p class="capability-desc">
+                High-concept cinematic narratives, temporal frame-consistent character LoRAs, dynamic camera choreography via Kling 1.5 Pro and Runway Gen-3, delivered in uncompressed Apple ProRes 4444.
+              </p>
+              <div class="capability-tags">
+                <span class="cap-tag">4K Anamorphic</span>
+                <span class="cap-tag">Temporal Consistency</span>
+                <span class="cap-tag">Custom Camera Paths</span>
+                <span class="cap-tag">ComfyUI Pipeline</span>
+              </div>
+            </article>
+
+            <article class="capability-card">
+              <div class="capability-num">02 // COUTURE</div>
+              <h3 class="capability-title">High-Fashion & 3D Stills</h3>
+              <p class="capability-desc">
+                Avant-garde editorial campaigns, tactile nanofiber textiles, subsurface dermal realism, and surreal architectural set constructions without location overhead or physical constraints.
+              </p>
+              <div class="capability-tags">
+                <span class="cap-tag">8K Native Upscaling</span>
+                <span class="cap-tag">Subsurface Scattering</span>
+                <span class="cap-tag">Vogue-Grade Finishing</span>
+                <span class="cap-tag">Flux.1 Latent Space</span>
+              </div>
+            </article>
+
+            <article class="capability-card">
+              <div class="capability-num">03 // PERSONAS</div>
+              <h3 class="capability-title">Virtual Influencers & Digital Twins</h3>
+              <p class="capability-desc">
+                Sovereign synthetic personas capable of 24/7 cross-platform deployment, neural voice cloning in 32 languages, facial motion capture retargeting via LivePortrait, and autonomous interactive behavior.
+              </p>
+              <div class="capability-tags">
+                <span class="cap-tag">Multi-Lingual Audio</span>
+                <span class="cap-tag">Live Face Puppeteering</span>
+                <span class="cap-tag">Autonomous Agency</span>
+                <span class="cap-tag">Identity Lock LoRA</span>
+              </div>
+            </article>
+
+            <article class="capability-card">
+              <div class="capability-num">04 // ENTERPRISE AI</div>
+              <h3 class="capability-title">Custom Model Training & Enterprise LoRA</h3>
+              <p class="capability-desc">
+                Proprietary checkpoint adaptation for luxury houses and studios. Curated dataset cleaning, high-rank LoRA distillation, style preservation, and secure on-premise model deployment.
+              </p>
+              <div class="capability-tags">
+                <span class="cap-tag">High-Rank LoRA</span>
+                <span class="cap-tag">Diffusion Transformers</span>
+                <span class="cap-tag">C2PA Hash Sealing</span>
+                <span class="cap-tag">IP Ownership</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Synthetic Pipeline -->
+      <section class="section-padding" id="pipeline">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-tag mono">PRODUCTION WORKFLOW</div>
+            <h2 class="section-title">The Synthetic Pipeline</h2>
+            <p class="section-desc">
+              How The Porni Group transforms abstract vision into museum-grade synthetic reality across four rigorous neural stages.
+            </p>
+          </div>
+
+          <div class="pipeline-steps-wrap">
+            <div class="pipeline-step">
+              <span class="step-marker">STAGE 01</span>
+              <h3 class="step-title">Latent Exploration</h3>
+              <p class="step-text">
+                Token weighting, semantic vector mapping, and aesthetic moodboard embedding to discover unique latent coordinates.
+              </p>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="step-marker">STAGE 02</span>
+              <h3 class="step-title">Multi-Pass Synthesis</h3>
+              <p class="step-text">
+                Diffusion through custom LoRA weights with cross-attention guidance, controlnets, and layered regional prompt passes.
+              </p>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="step-marker">STAGE 03</span>
+              <h3 class="step-title">Temporal & Upscaling</h3>
+              <p class="step-text">
+                Optical flow motion smoothing, temporal consistency verification, and multi-tiled 8K neural super-resolution rendering.
+              </p>
+            </div>
+
+            <div class="pipeline-step">
+              <span class="step-marker">STAGE 04</span>
+              <h3 class="step-title">Audio & C2PA Provenance</h3>
+              <p class="step-text">
+                Spatial acoustic synthesis paired with cryptographic SHA-256 C2PA metadata embedding to guarantee authenticity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Synthetic Manifesto Section -->
+      <section class="section-padding" id="manifesto" style="padding-top: 2rem;">
+        <div class="container">
+          <div class="manifesto-box">
+            <div class="section-tag mono">THE SYNTHETIC MANIFESTO // 2026</div>
+            <blockquote class="manifesto-quote">
+              "We reject the simulation of mediocrity. Synthetic intelligence is not an imitation of nature, but the birth of an autonomous aesthetic geometry."
+            </blockquote>
+            <div class="manifesto-columns">
+              <div class="manifesto-item">
+                <h4 class="manifesto-item-title">
+                  <span>●</span> Transparent Neural Attribution
+                </h4>
+                <p class="manifesto-item-desc">
+                  Every pixel, frame, and phoneme generated by The Porni Group openly carries its algorithmic lineage and architectural seed.
+                </p>
+              </div>
+              <div class="manifesto-item">
+                <h4 class="manifesto-item-title">
+                  <span>●</span> Symbiosis Over Replacement
+                </h4>
+                <p class="manifesto-item-desc">
+                  Machines expand the boundaries of the human mind. We use diffusion models to execute impossible visions that physical cameras cannot grasp.
+                </p>
+              </div>
+              <div class="manifesto-item">
+                <h4 class="manifesto-item-title">
+                  <span>●</span> Cryptographic Provenance
+                </h4>
+                <p class="manifesto-item-desc">
+                  We integrate C2PA Coalition standards into every artifact, establishing trust, ownership, and provenance on the open digital ledger.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Inquiry / Commission Form -->
+      <section class="section-padding" id="contact" style="position: relative;">
+        <span id="commission" style="position: absolute; top: -80px;"></span>
+        <div class="container">
+          <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem;">
+            <div class="section-tag mono" style="justify-content: center;">COMMISSION A WORK</div>
+            <h2 class="section-title">Initiate Neural Synthesis</h2>
+            <p class="section-desc" style="margin: 0 auto;">
+              Submit your project brief to our studio cluster. Use our interactive AI Prompt Expander to infuse your vision with technical cinematic modifiers.
+            </p>
+          </div>
+
+          <div class="form-shell">
+            <form id="commissionForm">
+              <div class="form-grid two-col">
+                <div class="form-group">
+                  <label for="clientName" class="form-label">Name / Representative *</label>
+                  <input type="text" id="clientName" class="form-input" placeholder="e.g. Elena Rostova" required />
+                </div>
+                <div class="form-group">
+                  <label for="clientEmail" class="form-label">Contact / Handle / Organization *</label>
+                  <input type="text" id="clientEmail" class="form-input" placeholder="e.g. elena@luxurylabs.io or @elena_ai" required />
+                </div>
+              </div>
+
+              <!-- Mediums Multi-select -->
+              <div class="form-group" style="margin-bottom: 1.5rem;">
+                <label class="form-label">Synthesis Mediums (Select all that apply)</label>
+                <div class="pill-selector">
+                  <span class="type-pill selected">Synthetic Cinema (Video)</span>
+                  <span class="type-pill">High-Fashion Stills</span>
+                  <span class="type-pill">Virtual Persona / Avatar</span>
+                  <span class="type-pill">Acoustic & Voice Synthesis</span>
+                  <span class="type-pill">Custom Enterprise LoRA</span>
+                </div>
+              </div>
+
+              <div class="form-grid two-col">
+                <div class="form-group">
+                  <label for="budgetTier" class="form-label">Budget Tier</label>
+                  <select id="budgetTier" class="form-select">
+                    <option value="tier-1">$10,000 — $25,000 (Single Medium / Campaign Slice)</option>
+                    <option value="tier-2" selected>$25,000 — $50,000 (Full Cinematic Film & Stills)</option>
+                    <option value="tier-3">$50,000 — $100,000 (Autonomous Persona + Multimodal Campaign)</option>
+                    <option value="enterprise">$100,000+ (Enterprise Model Training & Custom Pipelines)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="timeline" class="form-label">Production Timeline</label>
+                  <select id="timeline" class="form-select">
+                    <option value="urgent">Urgent Sprint (3 - 5 Days)</option>
+                    <option value="standard" selected>Standard Production (1 - 2 Weeks)</option>
+                    <option value="extended">Deep Model Adaptation (3 - 4 Weeks)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <label for="projectBrief" class="form-label">Project Brief & Prompt Ideas *</label>
+                  <button type="button" id="btnExpandPrompt" class="btn-expander">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span>AI PROMPT MATRIX EXPANDER</span>
+                  </button>
+                </div>
+                <textarea id="projectBrief" class="form-textarea" rows="4" placeholder="Describe your creative concept, desired aesthetic, mood, or seed prompt ideas..." required></textarea>
+                <div class="prompt-expander-bar">
+                  <span style="font-size: 0.7rem; color: var(--text-faint); font-family: var(--font-mono);">
+                    Tip: Click "AI PROMPT MATRIX EXPANDER" to inject cinematic lens, lighting, and rendering tokens.
+                  </span>
+                </div>
+              </div>
+
+              <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary" style="width: 100%; max-width: 320px;">
+                  <span>Dispatch Commission Brief</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a href="#" class="brand-logo" aria-label="The Porni Group Home">
+              <div class="brand-icon"></div>
+              <span class="brand-name">THE PORNI <span>GROUP</span></span>
+            </a>
+            <p class="footer-brand-desc">
+              The apex studio for generative artificial intelligence. Pioneering the threshold between computational latent space and transcendent human aesthetics.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-links-list">
+              <li><a href="#showcase" class="footer-link">Showcase</a></li>
+              <li><a href="#mediums" class="footer-link">Mediums</a></li>
+              <li><a href="#pipeline" class="footer-link">Pipeline</a></li>
+              <li><a href="#manifesto" class="footer-link">Manifesto</a></li>
+              <li><a href="#contact" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Neural Nodes</h4>
+            <ul class="footer-links-list">
+              <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Repository ↗</a></li>
+              <li><a href="https://huggingface.co" target="_blank" rel="noopener noreferrer" class="footer-link">Hugging Face Models ↗</a></li>
+              <li><a href="https://c2pa.org" target="_blank" rel="noopener noreferrer" class="footer-link">C2PA Provenance Ledger ↗</a></li>
+              <li><a href="#" class="footer-link">ComfyUI Cluster Relay</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-disclaimer-wrap">
+          <p class="synthetic-disclaimer mono">
+            SYNTHETIC MEDIA DISCLAIMER: All visual, acoustic, and virtual persona artifacts published by The Porni Group are procedurally generated utilizing advanced neural diffusion and transformer architectures. No biological human likeness or copyrighted source imagery is depicted without explicit consent or synthetic provenance certification conforming to C2PA standards.
+          </p>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copyright-text">
+            © 2026 The Porni Group. All synthetic rights reserved.
+          </div>
+          <div class="latency-hud">
+            <span>NODE: US-EAST-01</span>
+            <span class="latency-ping">● LIVE</span>
+            <span>LATENCY: <strong id="systemLatency" style="color: #fff;">18ms</strong></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox / Latent Matrix Inspector Modal -->
+    <div id="lightboxModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-window">
+        <!-- Media Visualizer -->
+        <div class="modal-media-col">
+          <img id="modalImage" class="modal-image" src="" alt="Latent Media Inspection" />
+
+          <!-- Interactive Modal Web Audio Waveform Player (for acoustic pieces) -->
+          <div id="modalAudioPanel" class="modal-audio-panel" style="display: none;">
+            <div class="modal-audio-header">
+              <span class="modal-audio-badge mono">● NEURAL ACOUSTIC SYNTHESIZER</span>
+              <span id="modalAudioStatus" class="mono">STATUS: STANDBY</span>
+            </div>
+            <canvas id="modalWaveformCanvas" class="modal-waveform-canvas" width="460" height="70"></canvas>
+            <div class="modal-audio-controls">
+              <button type="button" id="modalAudioPlayBtn" class="btn btn-secondary modal-audio-play-btn" aria-label="Toggle Acoustic Waveform Synthesis">
+                <span id="modalAudioPlayIcon">▶</span>
+                <span id="modalAudioPlayText">SYNTHESIZE ACOUSTIC STREAM</span>
+              </button>
+              <div class="modal-audio-param">
+                <label for="modalPitchSlider" class="mono">RESONANCE</label>
+                <input type="range" id="modalPitchSlider" min="110" max="880" value="330" step="10" />
+                <span id="modalPitchVal" class="mono">330Hz</span>
+              </div>
+            </div>
+            <div class="modal-audio-footer mono">
+              <span>UDIO 1.5 // 48kHz 24-BIT MULTI-VECTOR DIFFUSION</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Telemetry Sidebar -->
+        <div class="modal-sidebar-col">
+          <div class="modal-top-bar">
+            <div>
+              <span id="modalCategory" class="category-tag">CATEGORY</span>
+            </div>
+            <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close Inspector">✕</button>
+          </div>
+
+          <h3 id="modalTitle" class="modal-title">TITLE</h3>
+
+          <!-- Technical Specs Matrix -->
+          <div class="specs-grid">
+            <div class="spec-item">
+              <span class="spec-name">Model Architecture</span>
+              <span id="modalModel" class="spec-val">Flux.1 [Dev]</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">Diffusion Seed</span>
+              <span id="modalSeed" class="spec-val">4920194812</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">Sampling Steps</span>
+              <span id="modalSteps" class="spec-val">40 Steps</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">CFG Guidance</span>
+              <span id="modalCfg" class="spec-val">3.5</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">Sampler Engine</span>
+              <span id="modalSampler" class="spec-val">Euler Ancestral</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">Aspect Ratio</span>
+              <span id="modalAspect" class="spec-val">16:9</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-name">Target Resolution</span>
+              <span id="modalResolution" class="spec-val">3840 x 2160</span>
+            </div>
+          </div>
+
+          <!-- Positive Prompt -->
+          <div class="prompt-section-box">
+            <div class="prompt-box-header">
+              <span class="prompt-box-title">Positive Prompt Matrix</span>
+              <button class="copy-btn" data-target="modalPositivePrompt">COPY</button>
+            </div>
+            <div id="modalPositivePrompt" class="prompt-text"></div>
+          </div>
+
+          <!-- Negative Prompt -->
+          <div class="prompt-section-box">
+            <div class="prompt-box-header">
+              <span class="prompt-box-title">Negative Conditioning</span>
+              <button class="copy-btn" data-target="modalNegativePrompt">COPY</button>
+            </div>
+            <div id="modalNegativePrompt" class="prompt-text"></div>
+          </div>
+
+          <!-- C2PA Provenance Box -->
+          <div class="c2pa-box">
+            <div class="c2pa-header">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>C2PA CRYPTOGRAPHIC PROVENANCE HASH</span>
+            </div>
+            <div id="modalC2paHash" class="c2pa-hash">c2pa:sha256:...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dedicated Commission Feedback Modal -->
+    <div id="commissionFeedbackModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="feedbackModalTitle">
+      <div class="feedback-modal-window">
+        <div class="feedback-header">
+          <div class="feedback-badge mono">
+            <span class="pulse-indicator"></span>
+            <span>● SYNTHETIC WORK ORDER SEALED</span>
+          </div>
+          <button id="feedbackCloseBtn" class="modal-close-btn" aria-label="Close Feedback">✕</button>
+        </div>
+
+        <h3 id="feedbackModalTitle" class="feedback-title">Commission Brief Dispatched</h3>
+        <p class="feedback-subtitle">
+          Your creative parameters have been cryptographically committed to The Porni Group studio cluster.
+        </p>
+
+        <div class="feedback-receipt-box mono" id="feedbackReceiptBody">
+          <!-- Dynamically populated -->
+        </div>
+
+        <div class="feedback-actions">
+          <button type="button" id="copyReceiptBtn" class="btn btn-secondary">
+            <span>Copy Dispatch Receipt</span>
+          </button>
+          <button type="button" id="dismissFeedbackBtn" class="btn btn-primary">
+            <span>Acknowledge & Close</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Module Script -->
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
