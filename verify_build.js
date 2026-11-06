@@ -41,7 +41,19 @@ const checks = [
     cssContent.includes('#00f0ff') && 
     cssContent.includes('#ff007f') && 
     cssContent.includes('#dfff00')
-  }
+  },
+  // Seed Round & Pitch Memo Requirements:
+  { name: 'Contains £30,000,000 seed round target', pass: indexHtml.includes('£30,000,000') },
+  { name: 'Contains 3 founders founding team mention', pass: indexHtml.includes('3 founders') || indexHtml.includes('three founders') || indexHtml.includes('3 Founders') },
+  { name: 'Contains boob physics and anatomical research thesis', pass: indexHtml.includes('boob physics') },
+  { name: 'Contains interactive soft-body simulation canvas', pass: indexHtml.includes('softBodyCanvas') },
+  { name: 'Contains simulation parameter sliders', pass: indexHtml.includes('simStiffness') && indexHtml.includes('simDamping') && indexHtml.includes('simPressure') && indexHtml.includes('simGravity') },
+  { name: 'Contains interactive simulation mode toggles', pass: indexHtml.includes('data-mode="wireframe"') && indexHtml.includes('data-mode="dermal"') && indexHtml.includes('data-mode="heatmap"') },
+  { name: 'Contains Pitch Memo text in HTML', pass: indexHtml.includes('Adults wanna come, and I wanna drain their wallets') },
+  { name: 'Contains anti-corporate Teams satire', pass: indexHtml.includes('Microsoft Teams') },
+  { name: 'Contains irresistible promise', pass: indexHtml.includes('wank at a clicks notice ;)') },
+  { name: 'Contains Pitch_Memo.md in docs', pass: fs.existsSync(path.join(path.resolve('docs'), 'Pitch_Memo.md')) },
+  { name: 'Pitch_Memo.md has valid Obsidian YAML frontmatter and callouts', pass: fs.existsSync(path.join(path.resolve('docs'), 'Pitch_Memo.md')) && fs.readFileSync(path.join(path.resolve('docs'), 'Pitch_Memo.md'), 'utf8').includes('type/pitch-memo') && fs.readFileSync(path.join(path.resolve('docs'), 'Pitch_Memo.md'), 'utf8').includes('> [!NOTE]') }
 ];
 
 let allPassed = true;

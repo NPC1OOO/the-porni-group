@@ -1,53 +1,60 @@
 ---
-title: Synthetic Production Pipeline Guide
+title: Synthetic & Deformable Simulation Pipeline Guide
 aliases:
   - Studio Pipeline
-  - Workflow Specification
+  - Deformable Pipeline Specification
 tags:
   - type/pipeline
   - tech/diffusion
+  - tech/soft-body-physics
   - workflow/generative
   - status/evergreen
 created: 2026-11-06
 updated: 2026-11-06
 ---
 
-# The Synthetic Production Pipeline Guide
+# The Synthetic & Deformable Simulation Pipeline Guide
 
 > [!TIP] Overview
-> The Porni Group utilizes a standardized four-stage generative pipeline designed to eliminate hallucination, guarantee frame-to-frame temporal stability, and output cinema-grade masters.
+> The Porni Group's proprietary four-stage research architecture couples GPU-accelerated soft-body mechanics with multi-pass neural diffusion to eliminate anatomical distortions and temporal instability.
 
 ```
 ┌─────────────────────────┐      ┌─────────────────────────┐
 │        STAGE 01         │      │        STAGE 02         │
-│    Latent Exploration   │ ───► │   Multi-Pass Diffusion  │
-│   & Prompt Matrixing    │      │     & LoRA Injection    │
+│   Anatomical Capture    │ ───► │  GPU Soft-Body Physics  │
+│   & Geometry Boundary   │      │  & Mass-Spring Lattice  │
 └─────────────────────────┘      └─────────────────────────┘
              │                                │
              ▼                                ▼
 ┌─────────────────────────┐      ┌─────────────────────────┐
 │        STAGE 04         │      │        STAGE 03         │
-│      Neural Audio       │ ◄─── │  Temporal Consistency   │
-│  & C2PA Provenance Hash │      │  & 8K Ultra-Upscaling   │
+│   Real-Time Streaming   │ ◄─── │  Neural Rendering &     │
+│   & C2PA Provenance     │      │  Temporal Consistency   │
 └─────────────────────────┘      └─────────────────────────┘
 ```
 
-## Stage 01: Latent Exploration & Prompt Matrixing
-- Semantic token mapping across multi-modal vector databases.
-- Exploration of latent seeds using low-resolution rapid passes.
-- Injection of physical lens parameters (anamorphic 35mm, f/1.4, volumetric depth) and lighting setups.
+## Stage 01: Anatomical Capture & Geometry Boundary
+- High-resolution dermal scanning and volumetric soft-tissue discretization.
+- Definition of skeletal anchoring vs deformable non-rigid tissue boundaries.
+- Boundary volume constraints to prevent unnatural interpenetration during dynamic motion.
 
-## Stage 02: Multi-Pass Diffusion & LoRA Injection
-- Checkpoint invocation: Flux.1 [dev], Kling 1.5 Pro, Stable Diffusion 3.5 Large.
-- Cross-attention guidance with style-lock and character-lock LoRA weights (Rank 64 to 128).
-- Regional prompt conditioning to isolate foreground subjects from background architectural matrices.
+## Stage 02: GPU Soft-Body Physics & Mass-Spring Lattice
+- Real-time numerical integration of non-linear mass-spring-damper equations.
+- Hydrostatic volume conservation preventing character deflation or stretching.
+- Dynamic inertia and jiggle response matching biological soft-tissue impedance.
 
-## Stage 03: Temporal Consistency & 8K Ultra-Upscaling
-- For Synthetic Cinema: Optical flow interpolation, AnimateDiff / Kling motion paths, and latent temporal smoothing.
-- Super-resolution passes via tiled ESRGAN-Ultra and custom neural latent denoisers.
-- Artifact filtering and high-frequency textural sharpening.
+## Stage 03: Neural Rendering & Temporal Consistency
+- Coupling physical deformation vectors directly to latent conditioning layers.
+- Frame-to-frame optical flow consistency verification eliminating temporal flickering.
+- High-rank LoRA checkpoints preserving photorealistic epidermal textures, subsurface scattering, and lighting continuity.
 
-## Stage 04: Neural Audio & C2PA Provenance Signing
-- Synthetic sound design: ElevenLabs v3 neural vocoders, Udio 1.5 acoustic harmonics, and binaural 3D spatialization.
-- C2PA manifest creation: Embedding of prompt metadata, model version, random seed, and studio signature into image EXIF/XMP and video container blocks.
-- Cryptographic SHA-256 validation hash sealed for public client verification.
+## Stage 04: Real-Time Streaming & C2PA Provenance
+- Low-latency client delivery for interactive entertainment, gaming, and digital cinema.
+- Cryptographic SHA-256 provenance sealing under the Coalition for Content Provenance and Authenticity (C2PA).
+
+---
+
+## Related Notes
+- [[Pitch_Memo|Confidential Investor Pitch Memo]]
+- [[Architecture|System Architecture & Deformable Physics]]
+- [[MOC|Master Map of Content]]

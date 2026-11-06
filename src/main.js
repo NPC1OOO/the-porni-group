@@ -36,6 +36,7 @@ let modalCurrentFreq = 330;
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initCanvas();
+  initSoftBodySimulation();
   initTelemetryCounters();
   initGallery();
   initModal();
@@ -834,7 +835,7 @@ function resetModalAudioUI() {
 }
 
 /* ==========================================================================
-   AI PROMPT MATRIX EXPANDER (Commission Form)
+   AI PROMPT MATRIX EXPANDER (Investor Allocation & Term Sheet Notes)
    ========================================================================== */
 function initPromptExpander() {
   const expanderBtn = document.getElementById('btnExpandPrompt');
@@ -842,11 +843,11 @@ function initPromptExpander() {
   if (!expanderBtn || !textarea) return;
 
   const styleEnhancements = [
-    ', shot on Arri Alexa 65, 35mm anamorphic prime lens, volumetric god rays, hyper-detailed subsurface scattering, 8k resolution, photorealistic masterwork, chromatic dispersion, Octane 2026 render',
-    ', haute-couture aesthetic, liquid titanium cybernetic accents, dramatic chiaroscuro lighting, Hasselblad 100mm f/2.2, zero film grain, raw photo, award-winning editorial',
-    ', surreal biomechanical architecture, bioluminescent neon cyan and acidic lime rim lighting, Blade Runner 2049 atmosphere, raytraced reflections, Unreal Engine 5.4 cinematic sequence',
-    ', neural audio spectrum harmonic integration, binaural 3D spatial resonance, pristine studio acoustic treatment, 96kHz 24-bit dynamic fidelity',
-    ', autonomous virtual persona rig, photorealistic iris micro-geometry, microscopic dermal pores, hyper-consistent character LoRA weights, cinematic depth of field',
+    ', syndicate allocation of £5,000,000 with 1,024 NVIDIA H100 GPU cluster access, zero corporate bureaucracy, and absolute immunity from Microsoft Teams productivity coaching',
+    ', our LP investment committee has been pre-briefed on "boob physics" and has formally pledged to review technical milestones without making nervous eye contact',
+    ', lead seed term sheet with pro-rata rights, dedicated CUDA kernel optimization engineers, and zero unsolicited advice on choosing website shades of blue',
+    ', sovereign compute partnership: high-density liquid-cooled B200 reservation for real-time deformable soft-body simulations and anatomical neural rendering',
+    ', founder-friendly terms: no liquidation ratchets, non-blocking board observer, and full alignment with aggressive digital entertainment commercialization'
   ];
 
   let enhancementIdx = 0;
@@ -857,18 +858,18 @@ function initPromptExpander() {
     enhancementIdx++;
 
     if (!currentText) {
-      textarea.value = 'Cinematic concept with futuristic themes' + addition;
+      textarea.value = 'Seed allocation thesis for Porni Group frontier research' + addition;
     } else {
       textarea.value = currentText + addition;
     }
 
     textarea.focus();
-    showToast('AI Prompt Matrix: Synthetic Modifiers Injected');
+    showToast('AI Prompt Matrix: Investor Covenants Injected');
   });
 }
 
 /* ==========================================================================
-   COMMISSION INQUIRY FORM & DEDICATED FEEDBACK MODAL
+   COMMISSION INQUIRY FORM & DEDICATED FEEDBACK MODAL (Investor Allocation)
    ========================================================================== */
 function initCommissionForm() {
   const form = document.getElementById('commissionForm');
@@ -927,44 +928,44 @@ function initCommissionForm() {
     const name = document.getElementById('clientName').value.trim();
     const email = document.getElementById('clientEmail').value.trim();
     const budgetSelect = document.getElementById('budgetTier');
-    const budget = budgetSelect ? budgetSelect.options[budgetSelect.selectedIndex].text : '$25,000 — $50,000';
+    const budget = budgetSelect ? budgetSelect.options[budgetSelect.selectedIndex].text : '£30,000,000 — Take the Entire Seed Round (Preferred)';
     const timelineSelect = document.getElementById('timeline');
-    const timeline = timelineSelect ? timelineSelect.options[timelineSelect.selectedIndex].text : 'Standard Production';
+    const timeline = timelineSelect ? timelineSelect.options[timelineSelect.selectedIndex].text : 'Immediate Allocation (Closing in 14 Days)';
     const brief = document.getElementById('projectBrief').value.trim();
 
     if (!name || !email || !brief) {
-      alert('Please fill out all required fields (Name, Email/Handle, and Project Brief).');
+      alert('Please fill out all required fields (Name, Email/Handle, and Investor Notes).');
       return;
     }
 
     const selectedTypes = Array.from(document.querySelectorAll('.type-pill.selected')).map(
       (p) => p.textContent.trim()
     );
-    const mediumsList = selectedTypes.length ? selectedTypes.join(', ') : 'Synthetic Cinema (Video)';
+    const mediumsList = selectedTypes.length ? selectedTypes.join(', ') : 'GPU Soft-Body Physics, Deformable Geometry';
 
-    const ticketId = `TPG-${Math.floor(100000 + Math.random() * 900000)}-C2PA`;
+    const ticketId = `TPG-SEED-${Math.floor(100000 + Math.random() * 900000)}-C2PA`;
     const dispatchTime = new Date().toISOString();
     const c2paHash = `c2pa:sha256:${ticketId.toLowerCase()}`;
 
     const receiptHtml = `
       <div class="receipt-row">
-        <span class="receipt-label">Work Order ID:</span>
+        <span class="receipt-label">Seed Allocation Ticket:</span>
         <span class="receipt-val glow-text-cyan">${ticketId}</span>
       </div>
       <div class="receipt-row">
-        <span class="receipt-label">Client / Org:</span>
+        <span class="receipt-label">Partner / Entity:</span>
         <span class="receipt-val">${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</span>
       </div>
       <div class="receipt-row">
-        <span class="receipt-label">Selected Mediums:</span>
+        <span class="receipt-label">Research Focus Pillars:</span>
         <span class="receipt-val" style="color: var(--accent-magenta);">${escapeHtml(mediumsList)}</span>
       </div>
       <div class="receipt-row">
-        <span class="receipt-label">Budget Tier:</span>
-        <span class="receipt-val">${escapeHtml(budget)}</span>
+        <span class="receipt-label">Proposed Seed Ticket:</span>
+        <span class="receipt-val glow-text-lime">${escapeHtml(budget)}</span>
       </div>
       <div class="receipt-row">
-        <span class="receipt-label">Timeline:</span>
+        <span class="receipt-label">Commitment Horizon:</span>
         <span class="receipt-val">${escapeHtml(timeline)}</span>
       </div>
       <div class="receipt-row">
@@ -972,11 +973,11 @@ function initCommissionForm() {
         <span class="receipt-val">${dispatchTime}</span>
       </div>
       <div class="receipt-row">
-        <span class="receipt-label">Provenance Signature:</span>
+        <span class="receipt-label">C2PA Cryptographic Signature:</span>
         <span class="receipt-val glow-text-lime">${c2paHash}</span>
       </div>
       <div style="margin-top: 0.85rem; padding-top: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.08);">
-        <span class="receipt-label" style="display: block; margin-bottom: 0.25rem;">Prompt Matrix Seed:</span>
+        <span class="receipt-label" style="display: block; margin-bottom: 0.25rem;">Value-Add & Compute Notes:</span>
         <div style="color: var(--text-muted); font-size: 0.75rem; line-height: 1.5; font-style: italic;">
           "${escapeHtml(brief)}"
         </div>
@@ -994,9 +995,9 @@ function initCommissionForm() {
 
     if (copyReceiptBtn) {
       copyReceiptBtn.onclick = () => {
-        const plainReceipt = `THE PORNI GROUP // DISPATCH RECEIPT\nTicket: ${ticketId}\nClient: ${name} (${email})\nMediums: ${mediumsList}\nBudget: ${budget}\nTimeline: ${timeline}\nSignature: ${c2paHash}\nBrief: ${brief}`;
+        const plainReceipt = `THE PORNI GROUP // INVESTOR ALLOCATION RECEIPT\nTicket: ${ticketId}\nPartner / Entity: ${name} (${email})\nResearch Focus: ${mediumsList}\nProposed Allocation: ${budget}\nHorizon: ${timeline}\nProvenance Hash: ${c2paHash}\nValue-Add & Compute Notes: ${brief}`;
         copyToClipboard(plainReceipt).then(() => {
-          showToast('Work order receipt copied to clipboard');
+          showToast('Allocation receipt copied to clipboard');
           const span = copyReceiptBtn.querySelector('span');
           if (span) {
             span.textContent = 'COPIED!';
@@ -1017,7 +1018,7 @@ function initCommissionForm() {
       pills[0].classList.add('selected');
       pills[0].setAttribute('aria-checked', 'true');
     }
-    showToast('Work order sealed and dispatched!');
+    showToast('Term sheet request sealed & dispatched!');
   });
 }
 
@@ -1065,4 +1066,648 @@ function showToast(message) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 2800);
+}
+
+
+/* ==========================================================================
+   DEFORMABLE SOFT-BODY & SPRING LATTICE SIMULATION ENGINE
+   ========================================================================== */
+function initSoftBodySimulation() {
+  const canvas = document.getElementById('softBodyCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = 0;
+  let height = 0;
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const rect = canvas.getBoundingClientRect();
+    width = rect.width || 800;
+    height = rect.height || 520;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    if (ctx.resetTransform) {
+      ctx.resetTransform();
+    } else {
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+    }
+    ctx.scale(dpr, dpr);
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Simulation parameters
+  let stiffness = 0.08;
+  let damping = 0.982;
+  let gravity = 0.12;
+  let pressureKp = 0.06;
+  let renderMode = 'wireframe'; // 'wireframe', 'dermal', 'heatmap'
+
+  // Slider bindings
+  const stiffnessSlider = document.getElementById('simStiffness');
+  const dampingSlider = document.getElementById('simDamping');
+  const pressureSlider = document.getElementById('simPressure');
+  const gravitySlider = document.getElementById('simGravity');
+
+  const stiffnessVal = document.getElementById('stiffnessVal');
+  const dampingVal = document.getElementById('dampingVal');
+  const pressureVal = document.getElementById('pressureVal');
+  const gravityVal = document.getElementById('gravityVal');
+
+  if (stiffnessSlider) {
+    stiffnessSlider.addEventListener('input', (e) => {
+      stiffness = parseFloat(e.target.value);
+      if (stiffnessVal) stiffnessVal.textContent = stiffness.toFixed(2);
+    });
+  }
+  if (dampingSlider) {
+    dampingSlider.addEventListener('input', (e) => {
+      damping = parseFloat(e.target.value);
+      if (dampingVal) dampingVal.textContent = damping.toFixed(3);
+    });
+  }
+  if (pressureSlider) {
+    pressureSlider.addEventListener('input', (e) => {
+      pressureKp = parseFloat(e.target.value);
+      if (pressureVal) pressureVal.textContent = pressureKp.toFixed(2);
+    });
+  }
+  if (gravitySlider) {
+    gravitySlider.addEventListener('input', (e) => {
+      gravity = parseFloat(e.target.value);
+      if (gravityVal) gravityVal.textContent = `${gravity.toFixed(2)} G`;
+    });
+  }
+
+  // Render mode buttons
+  const modeButtons = document.querySelectorAll('.mode-btn');
+  modeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      modeButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderMode = btn.getAttribute('data-mode') || 'wireframe';
+    });
+  });
+
+  // Action buttons
+  const btnImpulse = document.getElementById('btnSimImpulse');
+  const btnHyperJiggle = document.getElementById('btnSimHyperJiggle');
+  const btnReset = document.getElementById('btnSimReset');
+
+  // HUD elements
+  const hudFps = document.getElementById('hudFps');
+  const hudStrain = document.getElementById('hudStrain');
+  const hudEnergy = document.getElementById('hudEnergy');
+  const hudPressure = document.getElementById('hudPressure');
+
+  // Vertices and Springs Data
+  let vertices = [];
+  let springs = [];
+  let lobes = [];
+
+  class Vertex {
+    constructor(x, y, isPinned = false, lobeIndex = 0) {
+      this.x = x;
+      this.y = y;
+      this.initX = x;
+      this.initY = y;
+      this.vx = 0;
+      this.vy = 0;
+      this.fx = 0;
+      this.fy = 0;
+      this.mass = isPinned ? Infinity : 1.0;
+      this.isPinned = isPinned;
+      this.lobeIndex = lobeIndex;
+    }
+
+    reset() {
+      this.x = this.initX;
+      this.y = this.initY;
+      this.vx = 0;
+      this.vy = 0;
+      this.fx = 0;
+      this.fy = 0;
+    }
+  }
+
+  class Spring {
+    constructor(v1, v2, kMultiplier = 1.0) {
+      this.v1 = v1;
+      this.v2 = v2;
+      const dx = v2.x - v1.x;
+      const dy = v2.y - v1.y;
+      this.restLength = Math.sqrt(dx * dx + dy * dy);
+      this.kMultiplier = kMultiplier;
+      this.strain = 0;
+    }
+
+    update() {
+      const dx = this.v2.x - this.v1.x;
+      const dy = this.v2.y - this.v1.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) || 0.0001;
+      const delta = dist - this.restLength;
+      this.strain = Math.abs(delta) / this.restLength;
+
+      const force = delta * stiffness * this.kMultiplier;
+      const nx = dx / dist;
+      const ny = dy / dist;
+
+      if (!this.v1.isPinned) {
+        this.v1.fx += nx * force;
+        this.v1.fy += ny * force;
+      }
+      if (!this.v2.isPinned) {
+        this.v2.fx -= nx * force;
+        this.v2.fy -= ny * force;
+      }
+    }
+  }
+
+  function setupGeometry() {
+    vertices = [];
+    springs = [];
+    lobes = [];
+
+    const centerX = width / 2;
+    const centerY = height * 0.44;
+    const lobeRadius = Math.min(width * 0.17, 115);
+    const lobeSpacing = lobeRadius * 1.55;
+
+    // Anchor Base (Rigid mounting points)
+    const anchorLeft = new Vertex(centerX - lobeSpacing * 0.7, centerY - lobeRadius * 1.05, true, -1);
+    const anchorCenter = new Vertex(centerX, centerY - lobeRadius * 1.15, true, -1);
+    const anchorRight = new Vertex(centerX + lobeSpacing * 0.7, centerY - lobeRadius * 1.05, true, -1);
+    vertices.push(anchorLeft, anchorCenter, anchorRight);
+
+    // Build Dual Soft-Tissue Lobes (Left and Right)
+    const lobeOffsets = [-lobeSpacing * 0.52, lobeSpacing * 0.52];
+    const numPerimeter = 14;
+
+    lobeOffsets.forEach((offset, lobeIdx) => {
+      const lx = centerX + offset;
+      const ly = centerY;
+      const core = new Vertex(lx, ly, false, lobeIdx);
+      vertices.push(core);
+
+      const lobePerimeter = [];
+
+      for (let i = 0; i < numPerimeter; i++) {
+        const angle = (i / numPerimeter) * Math.PI * 2;
+        // Natural anatomical soft-body tear-drop contour
+        const rx = lobeRadius * (1.0 + Math.sin(angle) * 0.12);
+        const ry = lobeRadius * (1.1 + Math.cos(angle) * 0.15);
+        const px = lx + Math.cos(angle) * rx;
+        const py = ly + Math.sin(angle) * ry;
+
+        const v = new Vertex(px, py, false, lobeIdx);
+        vertices.push(v);
+        lobePerimeter.push(v);
+
+        // Radial spring from core to perimeter
+        springs.push(new Spring(core, v, 1.1));
+      }
+
+      // Circumferential springs
+      for (let i = 0; i < numPerimeter; i++) {
+        const next = (i + 1) % numPerimeter;
+        springs.push(new Spring(lobePerimeter[i], lobePerimeter[next], 1.25));
+
+        // Shear cross springs (i to i+2)
+        const cross = (i + 2) % numPerimeter;
+        springs.push(new Spring(lobePerimeter[i], lobePerimeter[cross], 0.65));
+      }
+
+      // Compute Rest Area for Hydrostatic Pressure (Shoelace formula)
+      let restArea = 0;
+      for (let i = 0; i < numPerimeter; i++) {
+        const next = (i + 1) % numPerimeter;
+        restArea += lobePerimeter[i].x * lobePerimeter[next].y - lobePerimeter[next].x * lobePerimeter[i].y;
+      }
+      restArea = Math.abs(restArea) / 2;
+
+      lobes.push({
+        core,
+        perimeter: lobePerimeter,
+        restArea,
+      });
+
+      // Anchor connections
+      const targetAnchor = lobeIdx === 0 ? anchorLeft : anchorRight;
+      springs.push(new Spring(targetAnchor, core, 0.95));
+      springs.push(new Spring(anchorCenter, core, 0.85));
+      springs.push(new Spring(targetAnchor, lobePerimeter[Math.floor(numPerimeter * 0.75)], 1.1));
+      springs.push(new Spring(anchorCenter, lobePerimeter[Math.floor(numPerimeter * 0.85)], 0.9));
+    });
+
+    // Inter-lobe coupling springs (cleavage bridge resonance)
+    const leftPerimeter = lobes[0].perimeter;
+    const rightPerimeter = lobes[1].perimeter;
+    springs.push(new Spring(lobes[0].core, lobes[1].core, 0.5));
+    springs.push(new Spring(leftPerimeter[0], rightPerimeter[Math.floor(numPerimeter / 2)], 0.75));
+    springs.push(new Spring(leftPerimeter[1], rightPerimeter[Math.floor(numPerimeter / 2) - 1], 0.65));
+  }
+
+  setupGeometry();
+
+  // Mouse & Touch Interaction
+  const mouse = {
+    x: width / 2,
+    y: height / 2,
+    isDown: false,
+    draggedVertex: null,
+    prevX: width / 2,
+    prevY: height / 2,
+  };
+
+  function getPointerPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    return {
+      x: clientX - rect.left,
+      y: clientY - rect.top,
+    };
+  }
+
+  function onPointerDown(e) {
+    const pos = getPointerPos(e);
+    mouse.x = pos.x;
+    mouse.y = pos.y;
+    mouse.prevX = pos.x;
+    mouse.prevY = pos.y;
+    mouse.isDown = true;
+
+    // Find nearest vertex within 75px
+    let nearest = null;
+    let minDist = 75;
+
+    vertices.forEach((v) => {
+      if (v.isPinned) return;
+      const dx = v.x - mouse.x;
+      const dy = v.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < minDist) {
+        minDist = dist;
+        nearest = v;
+      }
+    });
+
+    mouse.draggedVertex = nearest;
+  }
+
+  function onPointerMove(e) {
+    const pos = getPointerPos(e);
+    mouse.x = pos.x;
+    mouse.y = pos.y;
+  }
+
+  function onPointerUp() {
+    if (mouse.draggedVertex) {
+      const flingX = (mouse.x - mouse.prevX) * 0.8;
+      const flingY = (mouse.y - mouse.prevY) * 0.8;
+      mouse.draggedVertex.vx += flingX;
+      mouse.draggedVertex.vy += flingY;
+    }
+    mouse.isDown = false;
+    mouse.draggedVertex = null;
+  }
+
+  canvas.addEventListener('mousedown', onPointerDown);
+  window.addEventListener('mousemove', onPointerMove);
+  window.addEventListener('mouseup', onPointerUp);
+
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    onPointerDown(e);
+  }, { passive: false });
+
+  window.addEventListener('touchmove', (e) => {
+    if (mouse.isDown) {
+      onPointerMove(e);
+    }
+  }, { passive: false });
+
+  window.addEventListener('touchend', onPointerUp);
+
+  canvas.addEventListener('dblclick', () => {
+    triggerImpulse();
+  });
+
+  function triggerImpulse() {
+    vertices.forEach((v) => {
+      if (v.isPinned) return;
+      v.vx += (Math.random() - 0.5) * 16;
+      v.vy += -(Math.random() * 14 + 6);
+    });
+    showToast('Simulation: Radial Impulse Shockwave Injected');
+  }
+
+  let hyperJiggleActive = false;
+  let hyperJiggleFrames = 0;
+
+  function triggerHyperJiggle() {
+    hyperJiggleActive = true;
+    hyperJiggleFrames = 180;
+    showToast('Simulation: High-Frequency Resonance Perturbation Active');
+  }
+
+  if (btnImpulse) btnImpulse.addEventListener('click', triggerImpulse);
+  if (btnHyperJiggle) btnHyperJiggle.addEventListener('click', triggerHyperJiggle);
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      vertices.forEach((v) => v.reset());
+      showToast('Simulation: Equilibrium Restored');
+    });
+  }
+
+  // Animation Loop & Physics Solver
+  let lastTime = performance.now();
+  let frameCount = 0;
+  let fpsTime = lastTime;
+  let currentFps = 60;
+
+  function solvePhysics() {
+    const subSteps = 3;
+    const dt = 1.0 / subSteps;
+
+    for (let step = 0; step < subSteps; step++) {
+      // 1. Reset forces & apply gravity
+      vertices.forEach((v) => {
+        v.fx = 0;
+        v.fy = v.isPinned ? 0 : gravity * 1.4;
+      });
+
+      // 2. Hyper-Jiggle periodic harmonic drive
+      if (hyperJiggleActive) {
+        hyperJiggleFrames--;
+        if (hyperJiggleFrames <= 0) hyperJiggleActive = false;
+        lobes.forEach((l, idx) => {
+          const osc = Math.sin(performance.now() * 0.02 + idx * Math.PI) * 1.8;
+          l.core.fy += osc;
+          l.perimeter.forEach((p, pIdx) => {
+            p.fx += Math.cos(pIdx + performance.now() * 0.015) * 0.9;
+          });
+        });
+      }
+
+      // 3. Mouse dragging spring constraint
+      if (mouse.isDown && mouse.draggedVertex) {
+        const dx = mouse.x - mouse.draggedVertex.x;
+        const dy = mouse.y - mouse.draggedVertex.y;
+        mouse.draggedVertex.fx += dx * 0.45;
+        mouse.draggedVertex.fy += dy * 0.45;
+        mouse.draggedVertex.vx *= 0.75;
+        mouse.draggedVertex.vy *= 0.75;
+      }
+
+      // 4. Update springs
+      springs.forEach((s) => s.update());
+
+      // 5. Hydrostatic Area Preservation (Volume Pressure)
+      lobes.forEach((l) => {
+        let currentArea = 0;
+        const n = l.perimeter.length;
+        for (let i = 0; i < n; i++) {
+          const next = (i + 1) % n;
+          currentArea += l.perimeter[i].x * l.perimeter[next].y - l.perimeter[next].x * l.perimeter[i].y;
+        }
+        currentArea = Math.abs(currentArea) / 2;
+
+        const deltaArea = l.restArea - currentArea;
+        const pressureForce = deltaArea * pressureKp;
+
+        for (let i = 0; i < n; i++) {
+          const next = (i + 1) % n;
+          const p1 = l.perimeter[i];
+          const p2 = l.perimeter[next];
+
+          const edgeX = p2.x - p1.x;
+          const edgeY = p2.y - p1.y;
+          const edgeLen = Math.sqrt(edgeX * edgeX + edgeY * edgeY) || 1;
+
+          // Outward normal vector
+          const normX = edgeY / edgeLen;
+          const normY = -edgeX / edgeLen;
+
+          const f = pressureForce * (edgeLen / l.restArea) * 45;
+
+          if (!p1.isPinned) {
+            p1.fx += normX * f * 0.5;
+            p1.fy += normY * f * 0.5;
+          }
+          if (!p2.isPinned) {
+            p2.fx += normX * f * 0.5;
+            p2.fy += normY * f * 0.5;
+          }
+        }
+      });
+
+      // 6. Integrate motion & apply damping
+      vertices.forEach((v) => {
+        if (v.isPinned) return;
+        v.vx = (v.vx + v.fx * dt) * damping;
+        v.vy = (v.vy + v.fy * dt) * damping;
+
+        // Velocity clamping for numerical stability
+        const speed = Math.sqrt(v.vx * v.vx + v.vy * v.vy);
+        if (speed > 28) {
+          v.vx = (v.vx / speed) * 28;
+          v.vy = (v.vy / speed) * 28;
+        }
+
+        v.x += v.vx * dt;
+        v.y += v.vy * dt;
+
+        // Soft collision boundary with floor and walls
+        const margin = 20;
+        if (v.x < margin) { v.x = margin; v.vx *= -0.5; }
+        if (v.x > width - margin) { v.x = width - margin; v.vx *= -0.5; }
+        if (v.y > height - margin) { v.y = height - margin; v.vy *= -0.5; v.vx *= 0.85; }
+        if (v.y < margin) { v.y = margin; v.vy *= -0.5; }
+      });
+    }
+
+    mouse.prevX = mouse.x;
+    mouse.prevY = mouse.y;
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // Background cyber grid lines
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+    ctx.lineWidth = 1;
+    const gridStep = 40;
+    for (let x = 0; x < width; x += gridStep) {
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+    for (let y = 0; y < height; y += gridStep) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+
+    // Render Lobes based on mode
+    if (renderMode === 'dermal') {
+      lobes.forEach((l) => {
+        ctx.beginPath();
+        const p = l.perimeter;
+        const n = p.length;
+        ctx.moveTo((p[0].x + p[n - 1].x) / 2, (p[0].y + p[n - 1].y) / 2);
+
+        for (let i = 0; i < n; i++) {
+          const next = (i + 1) % n;
+          const midX = (p[i].x + p[next].x) / 2;
+          const midY = (p[i].y + p[next].y) / 2;
+          ctx.quadraticCurveTo(p[i].x, p[i].y, midX, midY);
+        }
+        ctx.closePath();
+
+        // Organic biological radial gradient
+        const radGrad = ctx.createRadialGradient(l.core.x, l.core.y - 10, 10, l.core.x, l.core.y + 20, 130);
+        radGrad.addColorStop(0, 'rgba(255, 0, 127, 0.45)');
+        radGrad.addColorStop(0.5, 'rgba(30, 20, 36, 0.95)');
+        radGrad.addColorStop(1, 'rgba(12, 12, 18, 0.98)');
+        ctx.fillStyle = radGrad;
+        ctx.fill();
+
+        // Luminous glowing rim
+        ctx.strokeStyle = 'rgba(0, 240, 255, 0.7)';
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        // Subsurface specular highlight
+        ctx.beginPath();
+        ctx.arc(l.core.x - 18, l.core.y - 25, 22, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.fill();
+      });
+    }
+
+    // Springs rendering
+    springs.forEach((s) => {
+      ctx.beginPath();
+      ctx.moveTo(s.v1.x, s.v1.y);
+      ctx.lineTo(s.v2.x, s.v2.y);
+
+      if (renderMode === 'wireframe') {
+        const strainVal = Math.min(s.strain * 3.5, 1.0);
+        if (s.strain > 0.15) {
+          ctx.strokeStyle = `rgba(255, 0, 127, ${0.4 + strainVal * 0.6})`;
+          ctx.lineWidth = 1.6;
+        } else {
+          ctx.strokeStyle = `rgba(0, 240, 255, ${0.25 + (1 - strainVal) * 0.35})`;
+          ctx.lineWidth = 1.0;
+        }
+        ctx.stroke();
+      } else if (renderMode === 'heatmap') {
+        let strokeColor = '#00f0ff';
+        if (s.strain > 0.28) {
+          strokeColor = '#dfff00';
+        } else if (s.strain > 0.14) {
+          strokeColor = '#ff007f';
+        } else if (s.strain > 0.05) {
+          strokeColor = '#a0ff55';
+        }
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = 1.8 + Math.min(s.strain * 4, 3);
+        ctx.stroke();
+      }
+    });
+
+    // Vertices rendering
+    if (renderMode !== 'dermal') {
+      vertices.forEach((v) => {
+        ctx.beginPath();
+        if (v.isPinned) {
+          ctx.arc(v.x, v.y, 5, 0, Math.PI * 2);
+          ctx.fillStyle = '#dfff00';
+          ctx.fill();
+          ctx.strokeStyle = 'rgba(223, 255, 0, 0.5)';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+        } else {
+          const isLobeCore = lobes.some((l) => l.core === v);
+          const radius = isLobeCore ? 6 : 3.5;
+          ctx.arc(v.x, v.y, radius, 0, Math.PI * 2);
+          ctx.fillStyle = isLobeCore ? '#ff007f' : '#00f0ff';
+          ctx.fill();
+        }
+      });
+    }
+
+    // Active drag constraint line
+    if (mouse.isDown && mouse.draggedVertex) {
+      ctx.beginPath();
+      ctx.moveTo(mouse.draggedVertex.x, mouse.draggedVertex.y);
+      ctx.lineTo(mouse.x, mouse.y);
+      ctx.strokeStyle = 'rgba(223, 255, 0, 0.85)';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([4, 4]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      ctx.beginPath();
+      ctx.arc(mouse.x, mouse.y, 9, 0, Math.PI * 2);
+      ctx.strokeStyle = '#dfff00';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    // Update Telemetry Metrics
+    frameCount++;
+    const now = performance.now();
+    if (now - fpsTime >= 500) {
+      currentFps = Math.round((frameCount * 1000) / (now - fpsTime));
+      frameCount = 0;
+      fpsTime = now;
+      if (hudFps) hudFps.textContent = currentFps;
+    }
+
+    let totalStrain = 0;
+    springs.forEach((s) => { totalStrain += s.strain; });
+    const avgStrain = springs.length ? (totalStrain / springs.length) * 100 : 0;
+    if (hudStrain) hudStrain.textContent = `${avgStrain.toFixed(1)}%`;
+
+    let totalKineticEnergy = 0;
+    vertices.forEach((v) => {
+      if (!v.isPinned) {
+        totalKineticEnergy += 0.5 * (v.vx * v.vx + v.vy * v.vy);
+      }
+    });
+    if (hudEnergy) hudEnergy.textContent = `${(totalKineticEnergy * 0.01).toFixed(2)} J`;
+
+    if (lobes.length && hudPressure) {
+      let currentAreaSum = 0;
+      let restAreaSum = 0;
+      lobes.forEach((l) => {
+        restAreaSum += l.restArea;
+        const n = l.perimeter.length;
+        let a = 0;
+        for (let i = 0; i < n; i++) {
+          const next = (i + 1) % n;
+          a += l.perimeter[i].x * l.perimeter[next].y - l.perimeter[next].x * l.perimeter[i].y;
+        }
+        currentAreaSum += Math.abs(a) / 2;
+      });
+      const ratio = restAreaSum > 0 ? currentAreaSum / restAreaSum : 1.0;
+      const kpa = (101.3 * ratio).toFixed(1);
+      hudPressure.textContent = `${kpa} kPa`;
+    }
+  }
+
+  function loop() {
+    solvePhysics();
+    draw();
+    requestAnimationFrame(loop);
+  }
+
+  requestAnimationFrame(loop);
 }
